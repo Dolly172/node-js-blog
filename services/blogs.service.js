@@ -13,7 +13,7 @@ class BlogService {
 
   create = async (body) => {
     const newDoc = new Blogs(body);
-    const savedDoc = await this.saveDocument(newDoc);
+    const savedDoc = await this.save(newDoc);
     return savedDoc;
   };
 
@@ -25,9 +25,7 @@ class BlogService {
   update = async (id, updateObject) => {
     const filter = { _id: id }; //conditions to find the document
     //new: true -> returns the updated document
-    const updatedDoc = await Blogs.findOneAndUpdate(filter, updateObject, {
-      new: true,
-    });
+    const updatedDoc = await Blogs.findOneAndUpdate(filter, updateObject);
     return updatedDoc;
   };
 
