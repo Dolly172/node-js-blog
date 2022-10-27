@@ -24,7 +24,7 @@ class BlogService {
 
   update = async (id, updateObject) => {
     const filter = { _id: id }; //conditions to find the document
-    const updatedDoc = await Blogs.findOneAndUpdate(filter, updateObject);
+    const updatedDoc = await Blogs.findOneAndUpdate(filter, updateObject, {new: true});
     return updatedDoc;
   };
 
